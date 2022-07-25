@@ -1,3 +1,4 @@
+// importer jsonwebtoken pour la gestion des tokens 
 const jwt = require('jsonwebtoken');
  
 module.exports = (req, res, next) => {

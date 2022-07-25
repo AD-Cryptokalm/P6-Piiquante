@@ -4,6 +4,7 @@ const bcrypt = require("bcrypt");
 // importer la fonction jsonwebtoken
 const jwt = require("JsonWebToken");
 
+// importer le model user 
 const User = require("../models/User");
 
 // création compte

@@ -1,5 +1,6 @@
 const Sauce = require("../models/Sauce");
 
+// Ajout likes ou dislikes 
 exports.creatLikeSauce = (req, res, next) => {
   // identifier la sauce
   Sauce.findOne({ _id: req.params.id })

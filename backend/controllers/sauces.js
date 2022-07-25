@@ -2,20 +2,25 @@
 
 // importer le model sauce
 const Sauce = require("../models/Sauce");
+
+// importer fs pour gérer les images 
 const fs = require("fs");
 
+// Voir une sauce 
 exports.getOneSauce = (req, res, next) => {
   Sauce.findOne({ _id: req.params.id })
     .then((sauce) => res.status(200).json(sauce))
     .catch((error) => res.status(404).json({ error }));
 };
 
+// Voir toutes les sauces 
 exports.getAllSauce = (req, res, next) => {
   Sauce.find()
     .then((sauces) => res.status(200).json(sauces))
     .catch((error) => res.status(400).json({ error }));
 };
 
+// Ajouter une sauce 
 exports.createSauce = (req, res, next) => {
   const sauceObject = JSON.parse(req.body.sauce);
   delete sauceObject._id;
@@ -37,6 +42,7 @@ exports.createSauce = (req, res, next) => {
     });
 };
 
+// Modifier une sauce 
 exports.modifySauce = (req, res, next) => {
   const sauceObject = req.file
     ? {
@@ -66,6 +72,8 @@ exports.modifySauce = (req, res, next) => {
     });
 };
 
+
+// Supprimer une sauce 
 exports.deleteSauce = (req, res, next) => {
   Sauce.findOne({ _id: req.params.id })
     .then((sauce) => {

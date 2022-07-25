@@ -1,3 +1,4 @@
+// importation de multer pour definir le type d image 
 const multer = require('multer');
 
 const MIME_TYPES = {
